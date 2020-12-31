@@ -1,0 +1,13 @@
+.btn-toolbar .btn-outline-dark {
+  /*margin-left: inherit;*/
+  margin-left: 1rem;
+}
+
+.logo {
+  font-family: 'Cookie';
+  font-size: xx-large;
+  position: relative;
+  /*bottom: 0;*/
+  /*right: 0;*/
+}
+

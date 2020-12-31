@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>RecipesForU_tiles</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/clist.css">
+  <link rel="stylesheet" href="assets/css/News-Cards.css">
+  <link rel="stylesheet" href="assets/css/Pretty-Header.css">
+  <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+  <link rel="stylesheet" href="assets/css/Responsive-Form.css">
+  <link rel="stylesheet" href="assets/css/Sidebar-Menu-1.css">
+  <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light navbar-expand-md custom-header">
+    <div class="container-fluid">
+      <div><a class="navbar-brand" href="./view_recipes.html">Recipes&nbsp;<span>For U</span> </a></div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav links">
+          <li class="nav-item"></li>
+          <li class="nav-item"></li>
+          <li class="nav-item"></li>
+          <li class="nav-item"></li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto"></ul>
+      </div><a href="./index.html">Create a Recipe&nbsp;</a>
+    </div>
+  </nav>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <!-- Bootstrap 4 dependency -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"
+    integrity="sha512-7yA/d79yIhHPvcrSiB8S/7TyX0OxlccU8F/kuB8mHYjLlF1MInPbEohpoqfz0AILoq5hoD7lELZAYYHbyeEjag=="
+    crossorigin="anonymous"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script src="popper.min.js"></script> -->
+  <!-- <script src="bootstrap.min.js"></script> -->
+
+  <!-- bootbox code -->
+  <!-- <script src="bootbox.min.js"></script> -->
+  <!-- <script src="bootbox.locales.min.js"></script> -->
+
+
+  <script>
+
+    $(document).ready(function () {
+      $(document).on("click", ".show-alert", function (e) {
+        bootbox.confirm({
+          message: "Do you wish to permanently delete all recipes (even those that may not be on screen)",
+          buttons: {
+            confirm: {
+              label: 'Yes',
+              className: 'btn-success',
+            },
+            cancel: {
+              label: 'No',
+              className: 'btn-danger'
+            }
+          },
+
+          callback: function (result) {
+
+            if (result) {
+
+              $(".grid").empty();
+            }
+          }
+
+
+        });
+      });
+    });
+
+
+  </script>
+  <div id="wrapper" class="toggled">
+    <style>
+      .custom-control-input:checked~.custom-control-label::before {
+        color: #fff;
+        border-color: darkgreen;
+        background-color: darkgreen;
+      }
+    </style>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <div class="form-group">
+            <li><span class="filterType"> Cooking Time </span> </li>
+            <div class="custom-control custom-checkbox custom-control-inline">
+
+              <input type="checkbox" id="time1" name="customcheckboxinline1" class="custom-control-input">
+              <label class="custom-control-label" for="time1">0 to 14 (short)</label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="time2" name="customcheckboxinline2" class="custom-control-input">
+              <label class="custom-control-label" for="time2">15 to 44 (medium) </label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="time3" name="customcheckboxinline3" class="custom-control-input">
+              <label class="custom-control-label" for="time3"> 45 and longer (long) </label>
+            </div>
+
+            <div>
+
+              <br>
+            </div>
+
+            <li>
+
+              <div class="d-flex justify-content-center""><button id ='aSet' type=" button"
+                class="btn btn-md btn-success">Apply
+                Settings</button>
+              </div>
+
+            </li>
+            <br>
+            <li>
+
+              <div class="d-flex justify-content-center""><button id ='resBut' type=" button"
+                class="btn btn-md btn-warning">Reset
+                Settings</button>
+              </div>
+
+            </li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="page-content-wrapper">
+      <div class="container-fluid"><a class="btn-link upperB" role="button" id="menu-toggle" href="#menu-toggle">
+          Filter</a>
+        <a class="show-alert " id="deleteAll" href=#>Delete All Recipes</a>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+    window.onload = function () {
+      document.querySelector('#set-today').value = (new Date()).toISOString().substr(0, 10);
+      document.querySelector('#set-today').min = (new Date()).toISOString().substr(0, 10);
+    }
+    $(document).ready(function () {
+
+      const $valueSpan = $('.valueSpan2');
+      const $value = $('#customRange11');
+      $valueSpan.html($value.val());
+      $value.on('input change', () => {
+
+        $valueSpan.html($value.val());
+      });
+    });
+  </script>
+
+  <div class="container">
+    <form class="search-form">
+      <div class="input-group">
+
+        <div class="input-group-prepend"><span style="cursor: pointer; " class="input-group-text"><i
+              class="fa  fa-refresh"></i></span></div>
+        <input class="form-control sName" type="text" placeholder="Enter recipe name e.g. Simple Pancakes">
+        <div class="input-group-append"><button class="btn btn-light" id="sbut" type="button">Search </button></div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <div class="grid" id="Spiced Chicken">
+    <div id="r1" class="grid-item grid-item--width2" data-cal="900" data-cuisine="indian" data-time="med"
+      data-date='2020-11-20' data-name="spiced chicken and tomato rice" data-type="lunch">
+
+      <div class="" data-toggle="modal" data-target="#modal1">
+
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/indiantomato.jpg" alt="indian tomato dish" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day1">20</span><span class="month month1">Nov</span></div>
+            <h3 class="rName">Spiced Chicken and Tomato Rice</h3>
+            <div class="cardInfo">
+              <p>
+                Tender chicken sauteed in tomato and fresh rice. Can be made with aromatic spices.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 30 minutes</b>
+                <br>
+                <b>Calories: 900 cal</b> <br>
+
+                <b>Cuisine Type: Indian</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+    <div id="r2" class="grid-item grid-item--width2" data-cal="1200" data-cuisine="american" data-time="long"
+      data-date="2020-11-22 " data-type="dinner" data-name="spicy lasagne">
+      <div class="" data-toggle="modal" data-target="#modal2">
+
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/lasagne2.jpg" alt="lasagne dish" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day2">22</span><span class="month month2">Nov</span></div>
+            <h3 class="rName container">Spicy Lasagne
+            </h3>
+            <div class="cardInfo">
+              <p>
+                Lasagne but spicier.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 50 minutes</b>
+                <br>
+                <b>Calories: 1200 cal</b> <br>
+
+                <b>Cuisine Type: American</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div id="r3" class="grid-item grid-item--width2" data-cal="1300" data-cuisine="american" data-time="long"
+      data-date="2020-12-04" data-type="dinner" data-name="deluxe lasagne">
+      <div data-toggle="modal" data-target="#modal3">
+
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/lasagne2.jpg" alt="lasagne dish" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day3">04</span><span class="month month3">Dec</span></div>
+            <h3 class="rName container">Deluxe Lasagne
+
+
+            </h3>
+            <div class="cardInfo">
+              <p>
+                Lasagne but cheesier.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 50 minutes</b>
+                <br>
+                <b>Calories: 1300 cal</b> <br>
+
+                <b>Cuisine Type: American</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+    <div id="r4" class="grid-item grid-item--width2" data-cal="1200" data-cuisine="american" data-time="long"
+      data-date="2020-12-20" data-type="dinner" data-name="traditional lasagne">
+
+      <div class="" data-toggle="modal" data-target="#modal4">
+
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/lasagne2.jpg" alt="lasagne dish" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day4">20</span><span class="month month4">Dec</span></div>
+            <h3 class="rName container">Traditional Lasagne
+            </h3>
+            <div class="cardInfo">
+              <p>
+                Classic Lasagne made the right way.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 45 minutes</b>
+                <br>
+                <b>Calories: 1200 cal</b> <br>
+
+                <b>Cuisine Type: American</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="r5" class="grid-item grid-item--width2" data-cal="300" data-cuisine="american" data-time="short"
+      data-date="2020-11-20" data-type="snack" data-name="nutella apple slices">
+      <div class="" data-toggle="modal" data-target="#modal5">
+
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/snack5.jpg" alt="snack1" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day5">11</span><span class="month month5">Nov</span></div>
+            <h3 class="rName container">Nutella Apple Slices
+            </h3>
+            <div class="cardInfo">
+              <p>
+                A sweet simple snack.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 10 minutes</b>
+                <br>
+                <b>Calories: 300 cal</b> <br>
+
+                <b>Cuisine Type: American</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="grid-item grid-item--width2" data-time="short" data-date="2021-01-01" data-type="snack"
+      data-cuisine="american" data-cal="300" data-name="peanut butter apple slices">
+      <div class="" data-toggle="modal" data-target="#modal6">
+        <figure class="snip1527">
+
+          <div class="image"><img src="assets/img/snack5.jpg" alt="lasagne dish" />
+          </div>
+
+          <figcaption>
+            <span class="pull-left clickable close-icon" data-effect="fadeOut"><i class="fa fa-times fa-2x"></i></span>
+
+            <div class="date"><span class="day day6">01</span><span class="month month6">Jan</span></div>
+            <h3 class="rName container">Peanut Butter Apple Slices
+            </h3>
+            <div class="cardInfo">
+              <p>
+                A simple savoury snack.
+
+              </p>
+              <br>
+
+              <p>
+
+                <b>Time to Cook: 10 minutes</b>
+                <br>
+                <b>Calories: 300 cal</b> <br>
+
+                <b>Cuisine Type: American</b>
+              </p>
+
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  <script>
+
+    var $grid = $('.grid').isotope({
+      itemSelector: '.grid-item',
+      layoutMode: 'masonry',
+      masonry: {
+        gutter: 25
+      }
+    });
+
+    $(document).ready(function () {
+      //$("#card1").datepicker();
+      var month = new Array();
+      month[0] = "Jan";
+      month[1] = "Feb";
+      month[2] = "Mar";
+      month[3] = "Apr";
+      month[4] = "May";
+      month[5] = "Jun";
+      month[6] = "Jul";
+      month[7] = "Aug";
+      month[8] = "Sep";
+      month[9] = "Oct";
+      month[10] = "Nov";
+      month[11] = "Dec";
+      $("#card1").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month1').text(n);
+        $('.day1').text(day);
+
+      });
+      $("#card2").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month2').text(n);
+        $('.day2').text(day);
+
+      });
+      $("#card3").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month3').text(n);
+        $('.day3').text(day);
+
+      });
+      $("#card4").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month4').text(n);
+        $('.day4').text(day);
+
+      });
+      $("#card5").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month5').text(n);
+        $('.day5').text(day);
+
+      });
+      $("#card6").on("change", function () {
+        var selected = $(this).val();
+        var d = new Date(selected);
+        var n = month[d.getUTCMonth()];
+
+        day = (d.getUTCDate());
+        $('.month6').text(n);
+        $('.day6').text(day);
+
+      });
+
+
+
+
+      //$("#card1").datepicker({
+      //onSelect: function (dateText) {
+      //  alert('hello');
+      //console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+      // }
+      //});
+
+
+      $('#aSet').on('click', function () {
+        var filter1 = '';
+
+        if ($('#time1').prop('checked')) {
+          filter1 += ',[data-time=short]';
+
+        }
+
+        if ($('#time2').prop('checked')) {
+          filter1 += ',[data-time=med]';
+
+        }
+
+        if ($('#time3').prop('checked')) {
+          filter1 += ',[data-time=long]';
+
+        }
+
+
+        if (!($('#time3').prop('checked')) && !($('#time2').prop('checked')) && !($('#time1').prop('checked'))) {
+
+          filter1 += '*';
+        }
+
+        if (filter1.charAt(0) === ',') {
+          filter1 = filter1.substring(1);
+          console.log(filter1);
+
+        }
+
+
+
+        $grid.isotope({
+          filter: filter1
+        });
+
+
+      });
+
+
+
+      //reset but 
+      $('#resBut').on('click', function () {
+        //this.checked="";
+
+        //$( "input" ).prop( "checked", false );
+
+        $('#time1').prop("checked", false);
+        $('#time2').prop("checked", false);
+        $('#time3').prop("checked", false);
+
+        //this.checked.removeAttr("checked");
+
+        $grid.isotope({ filter: '*' });
+      });
+    });
+
+    //SEARCH BAR 
+
+
+    $('.sName').keypress(function (e) {
+      //alert('hello');
+      if (e.which === 13) {
+        e.preventDefault();
+        var filterValue = $(".sName").val().toLowerCase();
+        $grid.isotope({ filter: '[data-name*=' + filterValue + ']' });
+        $(".sName").val("");
+      }
+    });
+
+
+
+    $(".fa-refresh").click(function () {
+      $grid.isotope({ filter: '*' });
+    });
+
+
+
+    // $('#deleteAll').on('click', function (e) {
+
+    // });
+
+
+    $('.close-icon').on('click', function (e) {
+      x = $(this).parents('.grid-item');
+      $grid.isotope('remove', x)
+        .isotope('layout');
+      e.stopPropagation();
+    });
+
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+
+  <div class="modals">
+
+
+    <div id="modal1" class="modal fade" role="dialog">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Spiced Chicken and Tomato Rice</h2>
+
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>You are cooking for this many people:</p>
+            <input type="number" class="form-control" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="people" placeholder="1" step="1" value="1" min="1" />
+            <br>
+            <p>You are cooking on:</p>
+
+            <input class="form-control" id="card1" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="birthDate" type="date" min value="2020-11-20" />
+            <br>
+            <div>
+              <ul class="list-group list-group-flush list-spec">
+                <h3> Ingredients: </h3>
+                <li class="list-group-item">2 boneless chicken breasts</li>
+                <li class="list-group-item">1 medium sized tomato</li>
+                <li class="list-group-item">3 cups of rice</li>
+                <li class="list-group-item"><i> optional </i>: Oil, Paprika, Cumin, Ginger </li>
+              </ul>
+              <ol class="list-group list-group-flush">
+                <h3> Steps to Cook: </h3>
+                <li class="list-group-item">Cut chicken into strips, and dice tomato </li>
+                <li class="list-group-item">Heat pan to medium high, pour 5tbsp of oil, place spices</li>
+                <li class="list-group-item">Place tomatoes and chicken soon after</li>
+                <li class="list-group-item">Cook till chicken is golden brown</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div id="modal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Spicy Lasagne</h2>
+
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>You are cooking for this many people:</p>
+            <input type="number" class="form-control" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="people" placeholder="1" step="1" value="1" min="1" />
+            <br>
+            <p>You are cooking on:</p>
+
+            <input class="form-control" id="card2" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="birthDate" type="date" min value="2020-11-22" />
+            <br>
+            <div>
+              <ul class="list-group list-group-flush list-spec">
+                <h3> Ingredients: </h3>
+                <li class="list-group-item">2 lb of cheese</li>
+                <li class="list-group-item">4 cups of flour</li>
+                <li class="list-group-item">2 cups of tomato sauce</li>
+                <li class="list-group-item">spices</li>
+              </ul>
+              <ol class="list-group list-group-flush">
+                <h3> Steps to Cook: </h3>
+                <li class="list-group-item">Make lasagne base</li>
+                <li class="list-group-item">Put cheese, tomato sauce, and spices</li>
+                <li class="list-group-item">Bake</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div id="modal3" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Deluxe Lasagne</h2>
+
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>You are cooking for this many people:</p>
+            <input type="number" class="form-control" id="" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="people" placeholder="1" step="1" value="1" min="1" />
+            <br>
+            <p>You are cooking on:</p>
+
+            <input class="form-control" id="card3" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="birthDate" type="date" min value="2020-12-04" />
+            <br>
+            <div>
+              <ul class="list-group list-group-flush list-spec">
+                <h3> Ingredients: </h3>
+                <li class="list-group-item">4 lb of cheese</li>
+                <li class="list-group-item">4 cups of flour</li>
+                <li class="list-group-item">2 cups of tomato sauce</li>
+                <li class="list-group-item">spices</li>
+              </ul>
+              <ol class="list-group list-group-flush">
+                <h3> Steps to Cook: </h3>
+                <li class="list-group-item">Make lasagne base</li>
+                <li class="list-group-item">Put cheese, tomato sauce</li>
+                <li class="list-group-item">Add more cheese</li>
+                <li class="list-group-item">Bake</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    <div id="modal4" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Traditional Lasagne</h2>
+
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>You are cooking for this many people:</p>
+            <input type="number" class="form-control" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="people" placeholder="1" step="1" value="1" min="1" />
+            <br>
+            <p>You are cooking on:</p>
+
+            <input class="form-control" id="card4" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="birthDate" type="date" min value="2020-12-20" />
+            <br>
+            <div>
+              <ul class="list-group list-group-flush list-spec">
+                <h3> Ingredients: </h3>
+                <li class="list-group-item">2 lb of cheese</li>
+                <li class="list-group-item">4 cups of flour</li>
+                <li class="list-group-item">2 cups of tomato sauce</li>
+              </ul>
+              <ol class="list-group list-group-flush">
+                <h3> Steps to Cook: </h3>
+                <li class="list-group-item">Make lasagne base</li>
+                <li class="list-group-item">Put cheese, tomato sauce</li>
+                <li class="list-group-item">Bake</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div id="modal5" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Nutella Apple Slice</h2>
+
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>You are cooking for this many people:</p>
+            <input type="number" class="form-control" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="people" placeholder="1" step="1" value="1" min="1" />
+            <br>
+            <p>You are cooking on:</p>
+
+            <input class="form-control" id="card5" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+              name="birthDate" type="date" min value='2020-11-11' />
+            <br>
+            <div>
+              <ul class="list-group list-group-flush list-spec">
+                <h3> Ingredients: </h3>
+                <li class="list-group-item">3 tbsp of Nutella</li>
+                <li class="list-group-item">1 apple</li>
+              </ul>
+              <ol class="list-group list-group-flush">
+                <h3> Steps to Cook: </h3>
+                <li class="list-group-item">Cut apples into slices</li>
+                <li class="list-group-item">Apply Nutella evenly </li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="modal6" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Peanut Butter Apple Slice</h2>
+
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>You are cooking for this many people:</p>
+          <input type="number" class="form-control" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+            name="people" placeholder="1" step="1" value="1" min="1" />
+          <br>
+          <p>You are cooking on:</p>
+
+          <input class="form-control" id="card6" style="margin-left:0.2rem;font-family:Roboto, sans-serif;"
+            name="birthDate" type="date" min value="2021-01-01" />
+          <br>
+          <div>
+            <ul class="list-group list-group-flush list-spec">
+              <h3> Ingredients: </h3>
+              <li class="list-group-item">4 tbsp of Peanut Butter</li>
+              <li class="list-group-item">1 apple</li>
+            </ul>
+            <ol class="list-group list-group-flush">
+              <h3> Steps to Cook: </h3>
+              <li class="list-group-item">Cut apple into slices</li>
+              <li class="list-group-item">Apply peanut butter evenly on each slice</li>
+            </ol>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+  </div>
+
+  <script>
+    window.onload = function () {
+      //      document.querySelector('#set-today').value = (new Date()).toISOString().substr(0, 10);
+      //     document.querySelector('#set-today').min = (new Date()).toISOString().substr(0, 10);
+    }
+
+
+  </script>
+
+
+  <script src="assets/js/Sidebar-Menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+.btn-toolbar .btn-outline-dark {
+  /*margin-left: inherit;*/
+  margin-left: 1rem;
+}
+
+.logo {
+  font-family: 'Cookie';
+  font-size: xx-large;
+  position: relative;
+  /*bottom: 0;*/
+  /*right: 0;*/
+}
+
+#filter {
+  color: green;
+  /*color: #0056b3;*/
+  /*text-decoration: blink;*/
+  font-size: larger;
+}
+
+#filter:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.list-group {
+  list-style: decimal inside;
+}
+
+.list-group-item {
+  display: list-item;
+}
+
+.modal-content {
+  color: black;
+}
+
+.snip1527 {
+  color: white;
+}
+
+.list-spec {
+  list-style: none;
+}
+
+.cardInfo {
+  font-size: 1.2em;
+}
+
+.custom-control-label {
+  color: #bfbdbd;
+  margin-left: 1.5rem;
+}
+
+.filterType {
+  color: white;
+}
+
+.custom-range::-moz-range-thumb {
+  background: gray;
+}
+
+.custom-range::-ms-thumb {
+  background: gray;
+}
+
+.custom-range::-webkit-slider-thumb {
+  background: #006400;
+}
+
+.slider {
+  margin-left: 0.5rem;
+}
+
+#deleteall {
+  position: relative;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.grid {
+  margin-left: 3.4%;
+}
+
+.grid-item--width2 {
+  float: left;
+  width: fit-content;
+  /* margin-bottom: 20px; */
+}
+
+
+.upperB {
+  margin-left: 3%;
+  color: green;
+  text-decoration: none !important;
+}
+#deleteAll{
+  color: red;
+  margin-left: 1%;
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
