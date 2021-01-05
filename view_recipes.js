@@ -108,7 +108,7 @@ $(document).ready(function () {
     $('.day6').text(day);
   });
 
-  //apply filter seltings through isotope filter 
+  //apply filter settings through isotope filter 
   $('#aSet').on('click', function () {
 
     var filter1 = '';
