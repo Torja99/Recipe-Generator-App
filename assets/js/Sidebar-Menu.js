@@ -9,9 +9,10 @@ $(document).click(function (e) {
   var $target = $(e.target);
 
   //checking to see if the ancestor of the clicked element is the wrapper 
-  if (!$target.closest('#wrapper').length && $('#wrapper').hasClass('toggled')) {
+  if (!$target.closest('#wrapper').length && !$('#wrapper').hasClass('toggled')) {
 
     $('#wrapper').toggleClass('toggled');
     e.stopPropagation();
+    e.preventDefault();
   }
 });
