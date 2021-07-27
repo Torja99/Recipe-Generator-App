@@ -1,48 +1,35 @@
 # Recipes For U 
 > A functional protoype of a Recipe Management Website. Created to understand and explore modern web interface design principles. 
-<!-- >> Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here.
--->
+
 ## Table of Contents
-* [Features & Demo](#features)
+* [Key Features](#key-features)
 * [Technologies Used](#technologies-used)
 * [Setup](#setup)
 
-
-
 ## Key Features
-List the ready features here:
-- Search
-- Delete
-- Filter
+**Search**: quickly find recipe names using key words 
 
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+![search](https://user-images.githubusercontent.com/22987998/127220270-e3e369de-be11-40af-9d29-64ed1f842e24.gif)
 
+**Delete**: easily get rid of undesired recipes  
+
+![delete](https://user-images.githubusercontent.com/22987998/127220249-b8ad42da-ab6d-4edc-8c5b-8b07b2cab4f6.gif)
+
+**Filter**: need all your short recipes quickly? no problem 
+
+![filter](https://user-images.githubusercontent.com/22987998/127219965-db8b9111-0667-461c-8454-5e60745c965f.gif)
+
+**Edit**: change recipe details like the date of cooking
+
+![edit](https://user-images.githubusercontent.com/22987998/127219853-309c8171-cfff-4c8a-82df-b2c9953c89ad.gif)
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
-
-
+- [Javascript](https://www.javascript.com/) 
+- [jQuery](https://jquery.com/) 
+- [HTML](https://html.spec.whatwg.org/)  
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
+- [Bootstrap](https://getbootstrap.com/) 
 
 ## Setup
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
-
-# Go into the repository
-$ cd electron-markdownify
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
-```
+Download or clone this repository and open the view_recipes.html file using a web browser.
 
