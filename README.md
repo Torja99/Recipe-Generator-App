@@ -1,10 +1,9 @@
 # Recipes For U 
-> A functional protoype of a Recipe Management Website. Created to understand and explore modern web interface design principles. 
+> A functional protoype of a Recipe Management Website. Created to understand and explore modern web interface design principles. Try it [here!](https://recipesforu.netlify.app/view_recipes.html)
 
 ## Table of Contents
 * [Key Features](#key-features)
 * [Technologies Used](#technologies-used)
-* [Setup](#setup)
 
 ## Key Features
 **Search**: quickly find recipe names using key words 
@@ -30,6 +29,4 @@
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 
 - [Bootstrap](https://getbootstrap.com/) 
 
-## Setup
-Download or clone this repository and open the view_recipes.html file using a web browser.
 
